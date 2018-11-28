@@ -26,6 +26,29 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
+
+gem 'paperclip'
+
+gem 'will_paginate-bootstrap'
+
+gem 'fancybox-rails'
+
+gem 'paper_trail'
+
+gem 'unread'
+
+gem 'faye'
+
+gem 'thin', require: false
+
+gem 'pusher'
+
+gem 'render_sync', :github => 'Deolg/render_sync'
+
+gem 'redis'
+
+gem 'yaml_db'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
