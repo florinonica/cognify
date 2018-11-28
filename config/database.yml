@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: cognify_development
+
+test:
+  <<: *default
+  database: cognify_test
+
+production:
+  <<: *default
+  database: cognify_production
+  username: cognify
+  password: <%= ENV['COGNIFY_DATABASE_PASSWORD'] %>
