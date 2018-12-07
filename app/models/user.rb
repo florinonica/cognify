@@ -11,5 +11,9 @@ class User < ApplicationRecord
   validates :last_name, :presence => true
   validates :username, uniqueness: true
   #before_create :set_type
-  #enum type: {'' => 0, 'Employee' => 1, 'Client' => 2}
+  #enum type: {'' => 0, 'Teacher' => 1, 'Student' => 2}
+end
+
+def full_name
+  "#{first_name} #{last_name}"
 end

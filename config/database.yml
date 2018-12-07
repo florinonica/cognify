@@ -2,7 +2,14 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  reconnect: false
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  port: 5432
+  strict: false
+  username: postgres
+  password: postgres
+  timeout: 5000
 
 development:
   <<: *default
@@ -15,5 +22,3 @@ test:
 production:
   <<: *default
   database: cognify_production
-  username: cognify
-  password: <%= ENV['COGNIFY_DATABASE_PASSWORD'] %>
