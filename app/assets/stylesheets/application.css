@@ -2,6 +2,29 @@
  *= require_tree .
  *= require_self
  */
+
+.index-links {}
+.polygon-link {
+  width: 420px;
+  height: 280px;
+  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  z-index: -1;
+}
+
+.container {
+  width: 420px;
+  height: 280px;
+  position: relative;
+}
+.centered {
+  top: 50%;
+  left: 50%;
+  text-shadow: 2px 2px 4px black;
+  position: absolute;
+}
+
  .modal-login {
          color: #636363;
          width: 350px;
