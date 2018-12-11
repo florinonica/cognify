@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_093033) do
+ActiveRecord::Schema.define(version: 2018_12_11_115409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string "file_file_name"
+    t.string "file_content_type"
+    t.bigint "file_file_size"
+    t.datetime "file_updated_at"
+    t.bigint "user_id"
+    t.string "attachments_type"
+    t.bigint "attachments_id"
+    t.string "container_type"
+    t.bigint "container_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attachments_type", "attachments_id"], name: "index_attachments_on_attachments_type_and_attachments_id"
+    t.index ["container_type", "container_id"], name: "index_attachments_on_container_type_and_container_id"
+    t.index ["user_id"], name: "index_attachments_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", default: "", null: false
