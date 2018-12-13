@@ -1,0 +1,7 @@
+<% @categories.each do |category|%>
+  <div>
+    <%= category.name %>
+    <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_category_path(category), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%> |
+    <%= link_to '<i class="glyphicon glyphicon-remove"></i> Delete'.html_safe, category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'  %>
+  </div>
+<% end %>

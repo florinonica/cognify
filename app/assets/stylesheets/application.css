@@ -3,6 +3,16 @@
  *= require_self
  */
 
+@font-face {
+   font-family: 'Elianto-Regular';
+   src: url("Elianto-Regular.ttf") format('truetype');
+ }
+
+ body {
+   font-family: 'Elianto-Regular';
+   font-size: 18px;
+ }
+
 .index-links {}
 .polygon-link {
   width: 420px;

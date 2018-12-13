@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :get_category, only: [:show, :edit, :update, :destroy]
+
   def index
     @categories = Category.all
   end
@@ -41,7 +43,7 @@ class CategoriesController < ApplicationController
       params.require(:category).permit(:name)
     end
 
-    def get_course
+    def get_category
       @category = Category.find(params[:id])
     end
 end
