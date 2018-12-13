@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get "/temp" => "welcome#temp_index"
   #resources :users
+  resources :categories
+  resources :courses
 end

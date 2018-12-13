@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_action :get_course, only: [:show, :edit, :update, :destroy]
+
   def index
     @courses = Course.all
   end
@@ -31,7 +33,6 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course
     @course.destroy
     redirect_to courses_path
   end
