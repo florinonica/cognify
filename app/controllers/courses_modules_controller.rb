@@ -1,2 +1,0 @@
-class CoursesModulesController < ApplicationController
-end

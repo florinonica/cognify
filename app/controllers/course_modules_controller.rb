@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class CourseModulesController < ApplicationController
   def index
   end
 
@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
   def update
   end
-  
+
   def destroy
   end
 end
