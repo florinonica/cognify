@@ -13,10 +13,8 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.9.0rc1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <style>body {
@@ -28,57 +26,36 @@
   <body>
     <% if !((controller_name == "welcome" && action_name == "index") || (controller_name == "registrations" && action_name == "new") || (controller_name == "sessions" && action_name == "new")) %>
       <div class="wrapper">
-          <nav id="sidebar">
-              <div class="sidebar-header">
+          <nav id="sidebar" style='box-shadow: 1px 2px 4px rgba(0, 0, 0, .5); '>
+              <div class="sidebar-header" >
                   <h3 style='font-size: 32px'>COGNIFY</h3>
               </div>
               <ul class="list-unstyled components">
-                  <li class="active">
-                      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                      <ul class="collapse list-unstyled" id="homeSubmenu">
-                          <li>
-                              <a href="#">Home 1</a>
-                          </li>
-                          <li>
-                              <a href="#">Home 2</a>
-                          </li>
-                          <li>
-                              <a href="#">Home 3</a>
-                          </li>
-                      </ul>
+                  <li >
+                      <a href="<%= temp_path %>">Home</a>
                   </li>
                   <li>
-                      <a href="#">About</a>
+                      <a href="<%= users_path %>">Users</a>
                   </li>
                   <li>
-                      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                      <ul class="collapse list-unstyled" id="pageSubmenu">
-                          <li>
-                              <a href="#">Page 1</a>
-                          </li>
-                          <li>
-                              <a href="#">Page 2</a>
-                          </li>
-                          <li>
-                              <a href="#">Page 3</a>
-                          </li>
-                      </ul>
+                      <a href="<%= courses_path %>">Courses</a>
                   </li>
                   <li>
-                      <a href="#">Portfolio</a>
-                  </li>
-                  <li>
-                      <a href="#">Contact</a>
+                      <a href="#">Badges</a>
                   </li>
               </ul>
           </nav>
 
-        <div id="content">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light " style='box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);'>
-              <button type="button" id="sidebarCollapse" class="btn btn-info">
-                  <i class="fas fa-align-justify"></i>
+        <div id="content" >
+          <nav class="navbar navbar-expand-lg navbar-light bg-light " style='box-shadow: 1px 2px 4px rgba(0, 0, 0, .5); '>
+              <button type="button" id="sidebarCollapse" class="btn btn-info" style='font-size: 1.1em; background: #2F83EF;'>
+                  <i class="fas fa-align-justify"></i> Toggle Sidebar
               </button>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', :style => ' font-size: 18px; font-weight: bold; ' %>
+              <div style='margin-left: auto; display: flex; text-align: center;' >
+                <%= image_tag(current_user.avatar.url(:thumb), :class => "round-image-50", :style => 'margin-top: -10px') %>
+                <%= link_to "Edit Profile", edit_user_registration_path, :class => 'navbar-link' ,  :style => 'font-size: 18px; font-weight: bold; margin-left: 10px; margin-right: 10px; margin-top: 15px'%>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', :style => ' font-size: 18px; font-weight: bold; margin-top: 15px' %>
+              </div>
           </nav>
         </div>
       </div>
