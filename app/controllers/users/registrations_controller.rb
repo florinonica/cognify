@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
   #before_action :account_update_params, only: [:update]
@@ -49,14 +49,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :nickname, :position, :avatar, :password, :password_confirmation, :current_password])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :nickname, :position, :avatar, :password, :password_confirmation, :current_password, :type])
   end
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :username, :nickname, :address, :position, :email, :password, :password_confirmation, :current_password, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :type)
   end
 
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :username, :nickname, :address, :position, :email, :password, :password_confirmation, :current_password, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :username, :nickname, :address, :position, :email, :password, :password_confirmation, :current_password, :avatar, :type)
   end
 end

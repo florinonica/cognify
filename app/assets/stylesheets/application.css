@@ -24,11 +24,12 @@ body {
     z-index: -1;
 }
 
-.container {
+.container1 {
     width: 420px;
     height: 280px;
     position: relative;
 }
+
 .centered {
     top: 50%;
     left: 50%;
@@ -145,6 +146,7 @@ a:focus {
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
+    display: flex;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
