@@ -4,114 +4,212 @@
  */
 
 @font-face {
-   font-family: 'Elianto-Regular';
-   src: url("Elianto-Regular.ttf") format('truetype');
- }
+    font-family: 'Elianto-Regular';
+    src: url("Elianto-Regular.ttf") format('truetype');
+}
 
- body {
-   font-family: 'Elianto-Regular';
-   font-size: 18px;
- }
+body {
+    font-family: 'Elianto-Regular';
+    font-size: 18px;
+}
 
 .index-links {}
 .polygon-link {
-  width: 420px;
-  height: 280px;
-  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-  z-index: -1;
+    width: 420px;
+    height: 280px;
+    -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    z-index: -1;
 }
 
 .container {
-  width: 420px;
-  height: 280px;
-  position: relative;
+    width: 420px;
+    height: 280px;
+    position: relative;
 }
 .centered {
-  top: 50%;
-  left: 50%;
-  text-shadow: 2px 2px 4px black;
-  position: absolute;
+    top: 50%;
+    left: 50%;
+    text-shadow: 2px 2px 4px black;
+    position: absolute;
 }
 
- .modal-login {
-         color: #636363;
-         width: 350px;
-     }
-     .modal-login .modal-content {
-         padding: 20px;
-         border-radius: 5px;
-         border: none;
-     }
-     .modal-login .modal-header {
-         border-bottom: none;
-         position: relative;
-         justify-content: center;
-     }
-     .modal-login h4 {
-         text-align: center;
-         font-size: 26px;
-         margin: 30px 0 -15px;
-     }
-     .modal-login .form-control:focus {
-         border-color: #70c5c0;
-     }
-     .modal-login .form-control, .modal-login .btn {
-         min-height: 40px;
-         border-radius: 3px;
-     }
-     .modal-login .close {
-         position: absolute;
-         top: -5px;
-         right: -5px;
-     }
-     .modal-login .modal-footer {
-         background: #ecf0f1;
-         border-color: #dee4e7;
-         text-align: center;
-         justify-content: center;
-         margin: 0 -20px -20px;
-         border-radius: 5px;
-         font-size: 13px;
-     }
-     .modal-login .modal-footer a {
-         color: #999;
-     }
-     .modal-login .avatar {
-         position: absolute;
-         margin: 0 auto;
-         left: 0;
-         right: 0;
-         top: -70px;
-         width: 95px;
-         height: 95px;
-         border-radius: 50%;
-         z-index: 9;
-         background: #60c7c1;
-         padding: 15px;
-         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-     }
-     .modal-login .avatar img {
-         width: 100%;
-     }
-     .modal-login.modal-dialog {
-         margin-top: 80px;
-     }
-     .modal-login .btn {
-         color: #fff;
-         border-radius: 4px;
-         background: #60c7c1;
-         text-decoration: none;
-         transition: all 0.4s;
-         line-height: normal;
-         border: none;
-     }
-     .modal-login .btn:hover, .modal-login .btn:focus {
-         background: #45aba6;
-         outline: none;
-     }
-     .trigger-btn {
-         display: inline-block;
-         margin: 100px auto;
-     }
+.modal-login {
+    color: #636363;
+    width: 350px;
+}
+
+.modal-login .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-login .modal-header {
+    border-bottom: none;
+    position: relative;
+    justify-content: center;
+}
+
+.modal-login h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+}
+
+.modal-login .form-control:focus {
+    border-color: #70c5c0;
+}
+
+.modal-login .form-control, .modal-login .btn {
+    min-height: 40px;
+    border-radius: 3px;
+}
+
+.modal-login .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.modal-login .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    justify-content: center;
+    margin: 0 -20px -20px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.modal-login .modal-footer a {
+    color: #999;
+}
+
+.modal-login .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #60c7c1;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-login .avatar img {
+    width: 100%;
+}
+
+.modal-login.modal-dialog {
+    margin-top: 80px;
+}
+
+.modal-login .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #60c7c1;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+}
+
+.modal-login .btn:hover, .modal-login .btn:focus {
+    background: #45aba6;
+    outline: none;
+}
+
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
