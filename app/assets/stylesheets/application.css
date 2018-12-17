@@ -3,6 +3,13 @@
  *= require_self
  */
 
+.margin-wrapper {
+    margin-top: 120px;
+    margin-left: 300px;
+    width: 50%;
+
+}
+
 @font-face {
     font-family: 'Elianto-Regular';
     src: url("Elianto-Regular.ttf") format('truetype');
@@ -206,7 +213,7 @@ a, a:hover, a:focus {
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
-    background: #EDEFE6;
+    background: white;
     color: #fff;
     transition: all 0.3s;
 }
@@ -240,7 +247,7 @@ a, a:hover, a:focus {
 
 #sidebar ul li a:hover {
     color: #3C8BF2;
-    background: #fff;
+    background: #DDDED7;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {

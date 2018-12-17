@@ -1,3 +1,4 @@
+<div class='margin-wrapper'>
 <%= form_with model: @course, local: true do |form| %>
 
   <% if @course.errors.any?%>
@@ -11,38 +12,26 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-xs-4">
-      <%= form.label :title %><br>
-      <%= form.text_field :title, class: 'form-control' %>
-    </div>
-  </div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, class: 'form-control' %><br>
 
-  <div class="row">
-    <div class="col-xs-4">
-      <%= form.label :description %><br>
-      <%= form.text_field :description, class: 'form-control' %>
-    </div>
-  </div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description, class: 'form-control' %><br>
 
-  <div class="row">
-    <div class="col-xs-4">
-      <%= form.label :category %><br>
-      <%= form.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }, :category_id), class: 'form-control' %>
+    <%= form.label :category %><br>
+    <%= form.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }, :category_id), class: 'form-control' %><br><br>
 
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-4">
-      <%= form.label :price %><br>
-      <%= form.number_field :price, class: 'form-control' %>
-    </div>
-  </div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price, class: 'form-control' %><br>
 
 <br>
-  <p>
-    <%= form.submit "Submit"%>
-  </p>
-
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.submit "Submit"%>
+    </div>
+  </div>
 <% end %>
+
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, courses_path, {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %>
+
+</div>
