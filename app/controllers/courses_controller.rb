@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :get_course, only: [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = Course.all.paginate(:page => params[:page], per_page:6)
   end
 
   def show
@@ -15,9 +15,14 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    params.require(:course).permit(:files => [])
+    save_attachments(@course, params[:course][:files])
     if @course.save
       redirect_to courses_path
     else
+      @course.attachments.each do |file|
+        file.destroy
+      end
       render 'new'
     end
   end

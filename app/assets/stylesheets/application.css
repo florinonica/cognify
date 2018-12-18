@@ -11,20 +11,30 @@
 
 .margin-wrapper1 {
     margin-top: 150px;
-    margin-left: 250px;
-    width: 80%;
+    margin-left: 200px;
+    width: 100%;
     background-color: white;
-    border: 1px solid lightblue;
+    border: 1px solid #E3E6ED;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius:4px;
+    font-family: 'Ubuntu';
+}
+
+.wr-head {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  
+  background-color: #E3E6ED;
+  font-size: 24px;
+  display: flex;
 }
 
 .margin-wrapper2 {
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 20px;
-    height: 100px;
-    width: 100%;
+    font-family: 'Ubuntu';
+    height: 50px;
     border-radius:4px;
 }
 
