@@ -31,6 +31,9 @@ class CoursesController < ApplicationController
   end
 
   def update
+    params.require(:course).permit(:files => [])
+    save_attachments(@course, params[:course][:files])
+
     if @course.update(course_params)
       redirect_to courses_path
     else

@@ -42,8 +42,11 @@
           <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
         </div>
         <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px;'>
-          
-          <%= course.price%>
+          <% if course.price.blank? || course.price == 0 %>
+            Free
+          <% else %>
+            <%= course.price%>
+          <% end %>
         </div>
         <div style='margin-top: -10px'>
           <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_course_path(course), {:style => 'color:#0079bf; font-weight: bold; font-size: 32px; '} %>
