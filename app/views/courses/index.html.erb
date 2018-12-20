@@ -41,7 +41,7 @@
         <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
           <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
         </div>
-        <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px;'>
+        <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px; margin-top: -5px'>
           <% if course.price.blank? || course.price == 0 %>
             Free
           <% else %>
@@ -50,8 +50,9 @@
         </div>
         <div style='margin-top: -10px'>
           <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_course_path(course), {:style => 'color:#0079bf; font-weight: bold; font-size: 32px; '} %>
-          <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
+          <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
         </div>
+        <%= link_to '<i class="fas fa-user-plus"></i>'.html_safe, edit_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px; margin-top: -12px; margin-left: 5px'  %>
       </div>
     </div>
   <% end %>
