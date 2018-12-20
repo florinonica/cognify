@@ -23,6 +23,44 @@ class User < ApplicationRecord
     @login || username || email
   end
 
+  def can_create_category?
+    false
+  end
+
+  def can_edit_category?(category)
+    false
+  end
+
+  def can_delete_category?(category)
+    false
+  end
+
+  def can_create_course?
+    false
+  end
+
+  def can_edit_course?(course)
+    false
+  end
+
+  def can_delete_course?(course)
+    false
+  end
+
+  def can_create_module?
+    false
+  end
+
+  def can_edit_module?(course_module)
+    false
+  end
+
+  def can_delete_module?(course_module)
+    false
+  end
+
+
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

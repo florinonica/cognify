@@ -36,7 +36,7 @@ class CourseModulesController < ApplicationController
     save_attachments(@course_module, params[:course_module][:files])
 
     if @course_module.update(course_params)
-      redirect_to courses_path
+      redirect_to course_course_module_path(@course_module)
     else
       render 'edit'
     end
