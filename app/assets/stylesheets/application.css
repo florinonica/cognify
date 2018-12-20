@@ -24,15 +24,15 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
-  
+
   background-color: #E3E6ED;
   font-size: 24px;
   display: flex;
 }
 
 .margin-wrapper2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-family: 'Ubuntu';
     height: 50px;
     border-radius:4px;
