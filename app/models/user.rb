@@ -74,3 +74,4 @@ class User < ApplicationRecord
       self.type = self.class.name
     end
 end
+#'config.i18n.fallbacks = [I18n.default_locale]'.
