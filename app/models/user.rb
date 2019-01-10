@@ -2,14 +2,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, authentication_keys: [:login]
   has_attached_file :avatar, :styles => {:large => "750x750>", :medium => "300x300>", :thumb => "100x100#" }, :default_url => "generic.png"
   has_many :attachments, dependent: :destroy
-  has_and_belongs_to_many :groups
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :email, :presence => true, uniqueness: true
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :username, uniqueness: true
-#48 10 22 18 107 2 5 39 3 2 7
+
   before_create :set_type
 
   enum type: {'Admin' => 0, 'Teacher' => 1, 'TeacherAssistant' => 2, 'Student' => 3 }
