@@ -11,42 +11,41 @@
       </ul>
     </div>
   <% end %>
-
+<br>
   <div class="row">
     <div class="col-xs-5">
       <%= form.label :title %><br>
       <%= form.text_field :title, class: 'form-control' %>
     </div>
   </div>
-
+<br>
   <div class="row">
     <div class="col-xs-5">
       <%= form.label :description %><br>
       <%= form.text_area :description, class: 'form-control' %>
     </div>
   </div>
-
+<br>
   <div class="row">
     <div class="col-xs-5">
       <%= form.label :category %><br>
       <%= form.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }, :category_id), class: 'form-control' %>
     </div>
   </div>
-
+<br>
   <div class="row">
     <div class="col-xs-5">
       <%= form.label :price %><br>
       <%= form.number_field :price, class: 'form-control' %>
     </div>
   </div>
-
+<br>
   <div class="row">
     <div class="col-xs-5">
       <%= form.label :files %>
       <%= form.file_field :files, :multiple => true %>
     </div>
   </div>
-
 <br>
   <div class="row">
     <div class="col-xs-5">

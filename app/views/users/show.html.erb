@@ -1,0 +1,49 @@
+<style type="text/css">
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+}
+</style><br><br><br>
+<div class="row" style="display:flex;">
+<br>
+
+<div class="col xs-1" style="margin-right: 150px">
+<p>
+  <strong>Name</strong>
+  <%= @user.first_name + " " + @user.last_name %>
+</p>
+<br>
+<p>
+  <strong>Email</strong>
+  <td><%= @user.email %></td>
+</p>
+<br>
+<p>
+  <strong>Username</strong>
+  <%= @user.username %>
+</p>
+<br>
+<p>
+  <strong>User Type</strong>
+  <%= @user.type %>
+</p>
+<br>
+<p>
+  <strong>Address</strong>
+  <%= @user.address %>
+</p>
+<br>
+<br>
+
+</div>
+<div class="col xs-1"></div>
+<div class="col xs-1" style='margin-top: 50px'>
+  <p>
+  <%= image_tag(@user.avatar.url(:medium)) %>
+</p>
+</div>
+</div>
+
+<%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_user_path(@user), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %>  |  <%= link_to '<i class="glyphicon glyphicon-remove"></i> Delete'.html_safe, user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'%>
+<br>
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, users_path, {:style => 'color:#0079bf; font-size: 20px; font-weight: bold; font-family: "Ubuntu"'} %>
