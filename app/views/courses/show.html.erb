@@ -6,7 +6,7 @@
   </div>
 
   <div>
-      <%= @course.description %>
+      <%= @course.price %>
   </div>
 
   <div>
@@ -14,6 +14,8 @@
   </div>
 
   <div>
-      <%= @course.price %>
+      <%= @course.description %>
+      <%= render 'attachments/file', attachments: @course.attachments%>
   </div>
+
 </div>
