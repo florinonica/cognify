@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
+  before_action :get_portal
   layout "application"
+
 
   def after_sign_in_path_for(resource)
     temp_path
@@ -22,4 +24,16 @@ class ApplicationController < ActionController::Base
   	  end
   	end
   end
+
+  private
+    def get_portal
+
+      portals = Portal.where(subdomain: request.subdomain)
+
+      if portals.count > 0
+        @blog = blogs.first
+      else
+        redirect_to root_path
+      end
+    end
 end
