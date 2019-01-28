@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_120015) do
+ActiveRecord::Schema.define(version: 2019_01_28_053315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_01_10_120015) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "portal_id"
+    t.index ["portal_id"], name: "index_categories_on_portal_id"
   end
 
   create_table "course_modules", force: :cascade do |t|
@@ -54,7 +56,9 @@ ActiveRecord::Schema.define(version: 2019_01_10_120015) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "portal_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
+    t.index ["portal_id"], name: "index_courses_on_portal_id"
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -108,8 +112,13 @@ ActiveRecord::Schema.define(version: 2019_01_10_120015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "type"
+    t.bigint "portal_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["portal_id"], name: "index_users_on_portal_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "portals"
+  add_foreign_key "courses", "portals"
+  add_foreign_key "users", "portals"
 end
