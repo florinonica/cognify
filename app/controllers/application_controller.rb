@@ -1,16 +1,19 @@
 class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
-  before_action :get_portal
+  #before_action :get_portal
   layout "application"
 
-
   def after_sign_in_path_for(resource)
-    temp_path
+   portals_path(current_user.portal)
   end
 
-  def after_sign_up_path_for(resource)
-    temp_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   temp_path
+  # end
+  #
+  # def after_sign_in_path_for(resource)
+  #   temp_path
+  # end
 
   def save_attachments(container, files)
 
