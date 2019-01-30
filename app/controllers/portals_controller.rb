@@ -12,8 +12,9 @@ class PortalsController < ApplicationController
   def create
     @portal = Portal.new(portal_params)
 
-    if portal.save
+    if @portal.save
       @user = User.new(user_params)
+      @user.portal = @portal
 
       if @user.save
         redirect_to temp_path
@@ -48,7 +49,7 @@ class PortalsController < ApplicationController
   private
 
     def portal_params
-      params.require(:course).permit(:name, :domain)
+      params.require(:portal).permit(:name, :domain)
     end
 
     def user_params
