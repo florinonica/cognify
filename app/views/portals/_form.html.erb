@@ -2,19 +2,19 @@
   <div class="modal-dialog modal-login">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Register</h4>
+        <h4 class="modal-title">Create portal</h4>
       </div>
 
       <div class="modal-body">
         <%= form_with model: @portal, local: true do |f| %>
           <%#= devise_error_messages! %>
           <div class="form-group"><br />
-            <%= f.label :portal_name %><br />
-            <%= f.text_field :portal_name, class: 'form-control', autofocus: true, autocomplete: "username" %>
+            <%= f.label :name %><br />
+            <%= f.text_field :name, class: 'form-control', autofocus: true, autocomplete: "portal name" %>
           </div>
           <div class="form-group"><br />
-            <%= f.label :domain %><br />
-            <%= f.text_field :domain_name, class: 'form-control', autofocus: true, autocomplete: "username" %>
+            <%= f.label :subdomaindomain %><br />
+            <%= f.text_field :subdomain, class: 'form-control', autofocus: true, autocomplete: "domain" %>
           </div>
           <div class="form-group"><br />
             <%= f.label :username %><br />

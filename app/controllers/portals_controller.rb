@@ -10,10 +10,10 @@ class PortalsController < ApplicationController
   end
 
   def create
-    @portal = Portal.new(portal_params)
+    @portal = Portal.new(portal_params.slice(:name, :subdomain))
 
     if @portal.save
-      @user = User.new(user_params)
+      @user = User.new(portal_params.slice(:first_name, :last_name, :username, :nickname, :address, :email, :password, :password_confirmation, :type))
       @user.portal = @portal
 
       if @user.save
@@ -49,11 +49,7 @@ class PortalsController < ApplicationController
   private
 
     def portal_params
-      params.require(:portal).permit(:name, :domain)
-    end
-
-    def user_params
-      params.require(:portal).permit(:first_name, :last_name, :username, :nickname, :address, :email, :password, :password_confirmation, :type, :avatar)
+      params.require(:portal).permit(:name, :subdomain, :first_name, :last_name, :username, :nickname, :address, :email, :password, :password_confirmation, :type)
     end
 
     def get_portal
