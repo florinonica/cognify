@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   #before_action :authenticate_user!
-  before_action :get_portal, only: [:index, :show, :edit, :update, :destroy]
+  before_action :get_portal, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :get_category, only: [:show, :edit, :update, :destroy]
 
   def index

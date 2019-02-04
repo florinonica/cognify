@@ -38,7 +38,7 @@
                       <a href="<%= users_path %>">Users</a>
                   </li>
                   <li>
-                      <a href="<%= portal_courses_path %>">Courses</a>
+                      <a href="<%= portal_courses_path(current_user.portal) %>">Courses</a>
                   </li>
                   <li>
                       <a href="#">Grades</a>

@@ -6,7 +6,7 @@
           <%= category.name %>
         </div>
         <div style=' margin-top: -15px'>
-          <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, portal_edit_category_path(category), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
+          <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_portal_category_path(category), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
           <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, portal_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'  %>
         </div>
       </div>
