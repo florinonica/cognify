@@ -1,5 +1,5 @@
 <div class='margin-wrapper' style='width: 75%'>
-<%= form_with model: @category, local: true do |form| %>
+<%= form_with(model: [ @portal, @portal.categories.build ], local: true) do |form| %>
 
   <% if @category.errors.any?%>
     <div id="error_explanation">
@@ -27,7 +27,7 @@
 <br>
   <div class="row">
     <div class="col-xs-4">
-      <%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, categories_path, {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %>
+      <%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, portal_categories_path(@portal), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %>
     </div>
   </div>
 <% end %>
