@@ -1,1 +1,62 @@
-<%= render 'form' %>
+<div class='margin-wrapper' style='width: 75%'>
+<%= form_with(model: [ @portal, @course], local: true) do |form| %>
+
+  <% if @course.errors.any?%>
+    <div id="error_explanation">
+      <h2> <%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved: </h2>
+      <ul>
+        <% @course.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.label :title %><br>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.label :description %><br>
+      <%= form.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.label :category %><br>
+      <%= form.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }, :category_id), class: 'form-control' %>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.label :price %><br>
+      <%= form.number_field :price, class: 'form-control' %>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.label :files %>
+      <%= form.file_field :files, :multiple => true %>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= form.submit "Submit"%>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-5">
+    <%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, portal_courses_path(@portal), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %>
+  </div>
+</div>
+</div>
