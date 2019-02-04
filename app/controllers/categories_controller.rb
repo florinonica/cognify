@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
+  before_action :get_portal, only: [:index, :show, :edit, :update, :destroy]
   before_action :get_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = @portal.categories
   end
 
   def show
@@ -14,9 +15,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = @portal.catetegories.new(category_params)
     if @category.save
-      redirect_to categories_path
+      redirect_to portal_categories_path(@portal)
     else
       render 'new'
     end
@@ -27,7 +28,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path
+      redirect_to portal_categories_path(@portal)
     else
       render 'edit'
     end
@@ -35,7 +36,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to categories_path
+    redirect_to portal_categories_path(@portal)
   end
 
   private
@@ -46,5 +47,9 @@ class CategoriesController < ApplicationController
 
     def get_category
       @category = Category.find(params[:id])
+    end
+
+    def get_portal
+      @portal = Portal.find(params[:portal_id])
     end
 end

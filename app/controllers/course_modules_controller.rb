@@ -1,5 +1,5 @@
 class CourseModulesController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :get_course, only: [:index, :new, :create, :edit, :update]
   before_action :get_course_module, only: [:show, :edit, :update, :destroy]
 
