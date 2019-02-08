@@ -6,15 +6,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
    portals_path(current_user.portal)
   end
-
-  # def after_sign_in_path_for(resource)
-  #   temp_path
-  # end
-  #
-  # def after_sign_in_path_for(resource)
-  #   temp_path
-  # end
-
+  
   def save_attachments(container, files)
 
   	unless files.nil?
@@ -34,7 +26,7 @@ class ApplicationController < ActionController::Base
       portals = Portal.where(subdomain: request.subdomain)
 
       if portals.count > 0
-        @blog = blogs.first
+        @portal = portals.first
       else
         redirect_to root_path
       end

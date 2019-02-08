@@ -50,6 +50,6 @@ class CategoriesController < ApplicationController
     end
 
     def get_portal
-      @portal = Portal.find(params[:portal_id])
+      @portal = Portal.find(subdomain: request.subdomain)
     end
 end

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   constraints(SubdomainPresent) do
     root 'welcome#index'
-    devise_for :users, :controllers => { sessions: "users/sessions", registrations: 'users/registrations' }
+    devise_for :users, :controllers => { sessions: "users/sessions", registrations: "users/registrations"}
     resources :portals do
       resources :categories
       resources :courses do
@@ -53,9 +53,7 @@ Rails.application.routes.draw do
     resources :courses do
       resources :course_modules
     end
-    resources :users
-
-    get "/temp" => "welcome#temp_index"
+    resources :ui
   end
   # root 'welcome#index'
   # devise_for :users, :controllers => { sessions: "users/sessions", registrations: 'users/registrations' }
@@ -73,3 +71,4 @@ Rails.application.routes.draw do
   #
   # get "/temp" => "welcome#temp_index"
 end
+#
