@@ -31,7 +31,7 @@
     <div style=' width: 150px; margin-right: 150px;'>
       Price
     </div>
-    <div class="col-xs-1">  <%= link_to "Add Course", new_portal_course_path(@portal), {:class => "btn btn-info", :style => 'color: white; font-weight: bold;'} %></div>
+    <div class="col-xs-1">  <%= link_to "Add Course", new_course_path, {:class => "btn btn-info", :style => 'color: white; font-weight: bold;'} %></div>
   </div>
   <% @courses.each do |course|%>
     <div class="margin-wrapper2" align='left'>
@@ -50,10 +50,10 @@
           <% end %>
         </div>
         <div style='margin-top: -10px'>
-          <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_portal_course_path(course.portal, course), {:style => 'color:#0079bf; font-weight: bold; font-size: 32px; '} %>
+          <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_course_path(course), {:style => 'color:#0079bf; font-weight: bold; font-size: 32px; '} %>
           <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
         </div>
-        <%= link_to '<i class="fas fa-user-plus"></i>'.html_safe, edit_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px; margin-top: -13px; margin-left: 5px'  %>
+        <%#= link_to '<i class="fas fa-user-plus"></i>'.html_safe, edit_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px; margin-top: -13px; margin-left: 5px'  %>
       </div>
     </div>
   <% end %>

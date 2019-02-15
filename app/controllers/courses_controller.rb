@@ -15,11 +15,12 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = @portal.courses.new(course_params)
+    @course = Course.new(course_params)
+    @course.portal = @portal
     params.require(:course).permit(:files => [])
     save_attachments(@course, params[:course][:files])
     if @course.save
-      redirect_to portal_courses_path(@portal)
+      redirect_to courses_path
     else
       @course.attachments.each do |file|
         file.destroy
@@ -36,7 +37,7 @@ class CoursesController < ApplicationController
     save_attachments(@course, params[:course][:files])
 
     if @course.update(course_params)
-      redirect_to portal_courses_path(@portal)
+      redirect_to courses_path
     else
       render 'edit'
     end
@@ -44,7 +45,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to portal_courses_path(@portal)
+    redirect_to courses_path
   end
 
   private
@@ -58,6 +59,6 @@ class CoursesController < ApplicationController
     end
 
     def get_portal
-      @portal = Portal.find(subdomain: request.subdomain)
+      @portal = Portal.find_by(subdomain: request.subdomain)
     end
 end

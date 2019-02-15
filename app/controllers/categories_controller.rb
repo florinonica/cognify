@@ -15,9 +15,10 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = @portal.catetegories.new(category_params)
+    @category = Category.new(category_params)
+    @category.portal = @portal
     if @category.save
-      redirect_to portal_categories_path(@portal)
+      redirect_to categories_path
     else
       render 'new'
     end
@@ -28,7 +29,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to portal_categories_path(@portal)
+      redirect_to categories_path
     else
       render 'edit'
     end
@@ -36,7 +37,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to portal_categories_path(@portal)
+    redirect_to categories_path
   end
 
   private
@@ -50,6 +51,6 @@ class CategoriesController < ApplicationController
     end
 
     def get_portal
-      @portal = Portal.find(subdomain: request.subdomain)
+      @portal = Portal.find_by(subdomain: request.subdomain)
     end
 end

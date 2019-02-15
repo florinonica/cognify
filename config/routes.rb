@@ -30,45 +30,30 @@ end
 
 class SubdomainBlank
   def self.matches?(request)
-    request.subdomain.blank?
+    !request.subdomain.present?
   end
 end
 
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {sessions: "users/sessions", registrations: "users/registrations"}
+  get "/temp" => "welcome#temp_index", as: :temp
   constraints(SubdomainBlank) do
     root 'welcome#index'
-    devise_for :users, :controllers => { sessions: "users/sessions", registrations: 'users/registrations' }
+    resources :portals
+    # resources :categories
+    # resources :courses do
+    #   resources :course_modules
+    # end
+    resources :users
   end
 
   constraints(SubdomainPresent) do
-    root 'welcome#index'
-    devise_for :users, :controllers => { sessions: "users/sessions", registrations: "users/registrations"}
-    resources :portals do
-      resources :categories
-      resources :courses do
-        resources :course_modules
-      end
-    end
+    root 'welcome#temp'
+    resources :portals
     resources :categories
     resources :courses do
       resources :course_modules
     end
-    resources :ui
+    resources :users
   end
-  # root 'welcome#index'
-  # devise_for :users, :controllers => { sessions: "users/sessions", registrations: 'users/registrations' }
-  # resources :portals do
-  #   resources :categories
-  #   resources :courses do
-  #     resources :course_modules
-  #   end
-  # end
-  # resources :categories
-  # resources :courses do
-  #   resources :course_modules
-  # end
-  # resources :users
-  #
-  # get "/temp" => "welcome#temp_index"
 end
-#

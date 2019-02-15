@@ -7,4 +7,7 @@ class WelcomeController < ApplicationController
   def temp_index
   end
 
+  def temp
+  end
+
 end

@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
   layout "application"
 
   def after_sign_in_path_for(resource)
-   portals_path(current_user.portal)
+   #portals_path(Portal.where(subdomain: request.subdomain))
+   temp_path
   end
-  
+
   def save_attachments(container, files)
 
   	unless files.nil?

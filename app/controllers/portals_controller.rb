@@ -53,6 +53,6 @@ class PortalsController < ApplicationController
     end
 
     def get_portal
-      @portal = Portal.find(subdomain: request.subdomain)
+      @portal = Portal.find_by(subdomain: request.subdomain)
     end
 end

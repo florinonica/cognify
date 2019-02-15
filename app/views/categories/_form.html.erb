@@ -1,5 +1,5 @@
 <div class='margin-wrapper' style='width: 75%'>
-<%= form_with(model: [ @portal, @portal.categories.build ], local: true) do |form| %>
+<%= form_with(model: @category, local: true) do |form| %>
 
   <% if @category.errors.any?%>
     <div id="error_explanation">
