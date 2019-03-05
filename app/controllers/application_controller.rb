@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
   #before_action :get_portal
+  before_action :check_subdomain
+
   layout "application"
 
   def after_sign_in_path_for(resource)
-   #portals_path(Portal.where(subdomain: request.subdomain))
-   temp_path
+    root_url(:subdomain => current_user.portal.subdomain)
+    #portals_path(Portal.where(subdomain: request.subdomain))
   end
 
   def save_attachments(container, files)
@@ -30,6 +32,17 @@ class ApplicationController < ActionController::Base
         @portal = portals.first
       else
         redirect_to root_path
+      end
+    end
+
+    def check_subdomain
+
+      if current_user.present?
+
+        unless request.subdomain == current_user.portal.subdomain
+          redirect_to root_url(:subdomain => current_user.portal.subdomain), alert: "You are not authorized to access that subdomain."
+        end
+
       end
     end
 end
