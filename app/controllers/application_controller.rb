@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
   #before_action :get_portal
-  before_action :check_subdomain
+  skip_before_action :verify_authenticity_token
+  #before_action :check_subdomain
 
   layout "application"
 
-  def after_sign_in_path_for(resource)
-    root_url(:subdomain => current_user.portal.subdomain)
-    #portals_path(Portal.where(subdomain: request.subdomain))
+  def after_sign_in_path_for(resource_or_scope)
+    temp_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
   end
 
   def save_attachments(container, files)
@@ -21,6 +25,11 @@ class ApplicationController < ActionController::Base
   	    end
   	  end
   	end
+  end
+
+  def save_metadata(container, portal)
+    @metadata = Metadatum.new(container: container, portal: portal)
+    @metadata.save
   end
 
   private
@@ -40,7 +49,7 @@ class ApplicationController < ActionController::Base
       if current_user.present?
 
         unless request.subdomain == current_user.portal.subdomain
-          redirect_to root_url(:subdomain => current_user.portal.subdomain), alert: "You are not authorized to access that subdomain."
+          #redirect_to temp_url(:subdomain => current_user.portal.subdomain), alert: "You are not authorized to access that subdomain."
         end
 
       end

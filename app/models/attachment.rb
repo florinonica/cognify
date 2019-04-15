@@ -1,5 +1,4 @@
 class Attachment < ApplicationRecord
-
   belongs_to :user
   belongs_to :container, :polymorphic => true
   has_attached_file :file

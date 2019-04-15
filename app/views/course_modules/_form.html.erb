@@ -1,5 +1,5 @@
 <div class='margin-wrapper' style='width: 75%'>
-<%= form_with(model: [ @course, @course.course_modules.build ], local: true) do |form| %>
+<%= form_with(model: @course_module, local: true) do |form| %>
 
   <% if @course_module.errors.any?%>
     <div id="error_explanation">

@@ -19,7 +19,9 @@ class CoursesController < ApplicationController
     @course.portal = @portal
     params.require(:course).permit(:files => [])
     save_attachments(@course, params[:course][:files])
+
     if @course.save
+      save_metadata(@course, @portal)
       redirect_to courses_path
     else
       @course.attachments.each do |file|

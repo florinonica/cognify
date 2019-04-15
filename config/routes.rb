@@ -43,12 +43,11 @@ Rails.application.routes.draw do
     resources :users
   end
   constraints(SubdomainPresent) do
-    root 'welcome#temp'
+    root 'welcome#index'
     resources :portals
     resources :categories
-    resources :courses do
-      resources :course_modules
-    end
+    resources :courses
+    resources :course_modules
     resources :users
   end
 end

@@ -18,6 +18,7 @@ class CourseModulesController < ApplicationController
     @course_module = @course.course_modules.new(course_module_params)
     params.require(:course_module).permit(:files => [])
     save_attachments(@course_module, params[:course_module][:files])
+
     if @course_module.save
       redirect_to course_course_module_path(@course_module)
     else

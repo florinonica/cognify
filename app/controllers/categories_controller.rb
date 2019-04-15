@@ -17,7 +17,9 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     @category.portal = @portal
+
     if @category.save
+      save_metadata(@category, @portal)
       redirect_to categories_path
     else
       render 'new'
