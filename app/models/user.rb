@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :metadatum, as: :container, dependent: :destroy
+  has_one :metadatum, as: :container, dependent: :destroy
   belongs_to :portal
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, authentication_keys: [:login]
   has_attached_file :avatar, :styles => {:large => "750x750>", :medium => "300x300>", :thumb => "100x100#" }, :default_url => "generic.png"
