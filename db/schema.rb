@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_133609) do
+ActiveRecord::Schema.define(version: 2019_05_07_121525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2019_04_10_133609) do
   end
 
   create_table "metadata", force: :cascade do |t|
-    t.integer "first_container_id"
-    t.string "first_container_type"
+    t.integer "container_id"
+    t.string "container_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "portal_id"

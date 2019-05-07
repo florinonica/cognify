@@ -46,8 +46,9 @@ Rails.application.routes.draw do
     root 'welcome#index'
     resources :portals
     resources :categories
-    resources :courses
-    resources :course_modules
+    resources :courses do
+      resources :course_modules
+    end
     resources :users
   end
 end
