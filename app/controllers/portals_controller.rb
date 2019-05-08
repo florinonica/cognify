@@ -15,7 +15,7 @@ class PortalsController < ApplicationController
     if @portal.save
       @user = User.new(portal_params.slice(:first_name, :last_name, :username, :nickname, :address, :email, :password, :password_confirmation, :type))
       @user.portal = @portal
-      save_metadata(@course, @portal)
+      save_metadata(@user, @portal)
       if @user.save
         redirect_to temp_path
 
