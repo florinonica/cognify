@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_121525) do
+ActiveRecord::Schema.define(version: 2019_05_10_121759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.datetime "due_date"
+    t.integer "container_id"
+    t.string "container_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "attachments", force: :cascade do |t|
     t.string "file_file_name"
@@ -70,6 +78,17 @@ ActiveRecord::Schema.define(version: 2019_05_07_121525) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["student_id"], name: "index_enrollments_on_student_id"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.float "value", null: false
+    t.datetime "date"
+    t.bigint "users_id"
+    t.integer "container_id"
+    t.string "container_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_grades_on_users_id"
   end
 
   create_table "groups", force: :cascade do |t|
