@@ -1,8 +1,9 @@
 class User < ApplicationRecord
-  has_one :metadatum, as: :container, dependent: :destroy
-  belongs_to :portal
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, authentication_keys: [:login]
+  belongs_to :portal
   has_attached_file :avatar, :styles => {:large => "750x750>", :medium => "300x300>", :thumb => "100x100#" }, :default_url => "generic.png"
+  has_one :metadatum, as: :container, dependent: :destroy
+  has_many :grades, dependent: :destroy
   has_many :attachments, dependent: :destroy
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
