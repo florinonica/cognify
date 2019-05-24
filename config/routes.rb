@@ -47,8 +47,15 @@ Rails.application.routes.draw do
     resources :portals
     resources :categories
     resources :courses do
-      resources :course_modules
+      resources :course_modules do
+        resources :assignments
+      end
+      resources :assignments
     end
-    resources :users
+    resources :users do
+      resources :grades
+    end
+    resources :assignments
+    resources :grades
   end
 end
