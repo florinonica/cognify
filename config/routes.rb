@@ -57,5 +57,6 @@ Rails.application.routes.draw do
     end
     resources :assignments
     resources :grades
+    resources :groups
   end
 end
