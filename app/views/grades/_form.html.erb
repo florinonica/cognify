@@ -1,3 +1,35 @@
 <div class='margin-wrapper' style='width: 75%'>
+  <%= form_with(model: @grade, local: true) do |form| %>
+    <% if @grade.errors.any?%>
+      <div id="error_explanation">
+        <h2> <%= pluralize(@grade.errors.count, "error") %> prohibited this course from being saved: </h2>
+        <ul>
+          <% @grade.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <br>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= form.label :value %><br>
+        <%= form.number_field :value, class: 'form-control' %>
+      </div>
+    </div>
+  <br>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= form.label :user %><br>
+        <%= form.select :user_id, options_for_select(Student.all.collect { | student | [student.full_name, student.id] }, :user_id), class: 'form-control' %>
+      </div>
+    </div>
 
+  <br>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= form.submit "Submit"%>
+      </div>
+    </div>
+  <% end %>
 </div>

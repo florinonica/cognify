@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :get_user, only: [:show, :edit, :update, :destroy]
+  before_action :get_portal, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @users = User.paginate(:page => params[:page], per_page:10)
+    @users = @portal.users.paginate(:page => params[:page], per_page:10)
   end
 
   def show
@@ -15,8 +16,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.portal = @portal
+    save_metadata(@user, @portal)
     if @user.save
-      redirect_to root_path
+      if current_user
+        redirect_to root_path
+      else
+        redirect_to users_path
+      end
     else
       render 'new'
     end
@@ -41,10 +48,14 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :nickname, :address, :email, :password, :password_confirmation, :type, :avatar)
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :type)
     end
 
     def get_user
       @user = User.find(params[:id])
+    end
+
+    def get_portal
+      @portal = Portal.find_by(subdomain: request.subdomain)
     end
 end
