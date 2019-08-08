@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "/temp" => "welcome#temp_index", as: :temp
   constraints(SubdomainBlank) do
     root 'welcome#index'
-    
+
     resources :portals
     resources :users
   end
@@ -60,7 +60,7 @@ Rails.application.routes.draw do
     resources :assignments
     resources :grades
     resources :groups
-
+    resources :attachments
     post 'create_user' => 'users#create', as: :create_user
   end
 end

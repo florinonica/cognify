@@ -38,4 +38,8 @@ class Admin < User
   def can_delete_module?(course_module)
     true
   end
+
+  def can_delete_attachment?(attachment)
+    true
+  end
 end
