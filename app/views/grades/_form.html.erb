@@ -24,7 +24,12 @@
         <%= form.select :user_id, options_for_select(Student.all.collect { | student | [student.full_name, student.id] }, :user_id), class: 'form-control' %>
       </div>
     </div>
-
+  <br>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= form.label :course%>
+      </div>
+    </div>
   <br>
     <div class="row">
       <div class="col-xs-5">
