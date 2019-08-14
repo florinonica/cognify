@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     resources :grades
     resources :groups
     resources :attachments
+    resources :enrollments
     post 'create_user' => 'users#create', as: :create_user
   end
 end
