@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     resources :groups
     resources :attachments
     resources :enrollments
+    get 'courses/:id/add_enrollment' => 'courses#enroll', as: :add_enrollment
     post 'create_user' => 'users#create', as: :create_user
   end
 end

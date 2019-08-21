@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_portal, only: [:index, :new, :create, :edit, :update, :destroy]
-  before_action :get_course, only: [:show, :edit, :update, :destroy]
+  before_action :get_portal, only: [:index, :new, :create, :edit, :update, :destroy, :enroll]
+  before_action :get_course, only: [:show, :edit, :update, :destroy, :enroll]
 
   def index
     @courses = @portal.courses.paginate(:page => params[:page], per_page:6)
@@ -48,6 +48,17 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     redirect_to courses_path
+  end
+
+  def enroll
+    @enrollment = Enrollment.new
+    @enrollment.course = @course
+    @enrollment.student = current_user
+    @enrollment.start = Date.today
+    @enrollment.end = Date.today + 365
+    if @enrollment.save
+      redirect_to courses_path
+    end
   end
 
   private

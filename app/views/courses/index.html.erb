@@ -52,7 +52,7 @@
         <div style='margin-top: -10px'>
           <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_course_path(course), {:style => 'color:#0079bf; font-weight: bold; font-size: 32px; '} %>
           <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
-          <%= link_to '<i class="glyphicon glyphicon-education">Enroll</i>'.html_safe, new_enrollment_path(course), method: :get, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
+          <%= link_to '<i class="glyphicon glyphicon-education">Enroll</i>'.html_safe, add_enrollment_path(course), :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
         </div>
         <%#= link_to '<i class="fas fa-user-plus"></i>'.html_safe, edit_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px; margin-top: -13px; margin-left: 5px'  %>
       </div>
