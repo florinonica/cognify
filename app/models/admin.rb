@@ -46,4 +46,8 @@ class Admin < User
   def can_add_teacher?
     true
   end
+
+  def can_create_group?
+    true
+  end
 end

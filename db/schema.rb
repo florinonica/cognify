@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_122959) do
+ActiveRecord::Schema.define(version: 2019_09_11_132125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 2019_09_11_122959) do
     t.index ["portal_id"], name: "index_courses_on_portal_id"
   end
 
+  create_table "courses_teachers", id: false, force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "course_id", null: false
+    t.index ["course_id"], name: "index_courses_teachers_on_course_id"
+    t.index ["teacher_id"], name: "index_courses_teachers_on_teacher_id"
+  end
+
   create_table "enrollments", force: :cascade do |t|
     t.bigint "student_id"
     t.bigint "course_id"
@@ -118,9 +125,6 @@ ActiveRecord::Schema.define(version: 2019_09_11_122959) do
     t.string "subdomain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "teachers_courses_tables", force: :cascade do |t|
   end
 
   create_table "users", force: :cascade do |t|

@@ -22,7 +22,18 @@
   </div>
 
   <div class="col-xs-1">
-    <%= %>
+    <% if current_user.can_add_teacher? %>
+      <%= form_for @course, :url => {:action => :add_teacher} do |form| %>
+        <%= form.collection_radio_buttons :teacher_ids, (Teacher.all - @course.teachers), :id, :full_name, multiple: true, include_hidden: false, include_blank: false do |b|%>
+          <br>
+          <%= b.radio_button %>
+          <%= b.label %>
+        <%end %>
+        <p>
+          <%= form.submit 'Add Teacher', {class: "btn btn-info collapsed", :style => 'font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
