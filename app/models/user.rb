@@ -66,6 +66,14 @@ class User < ApplicationRecord
     false
   end
 
+  def can_enroll?(course)
+    false
+  end
+
+  def can_add_teacher?
+    false
+  end
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

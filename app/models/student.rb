@@ -9,4 +9,9 @@ class Student < User
   def can_delete_attachment?(attachment)
     (attachments.include?(attachment) ? true : false)
   end
+
+  def can_enroll?(course)
+    (courses.include?(course) ? false : true)
+  end
+
 end

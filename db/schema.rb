@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_084555) do
+ActiveRecord::Schema.define(version: 2019_09_11_122959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,9 @@ ActiveRecord::Schema.define(version: 2019_08_14_084555) do
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "users_id"
     t.index ["course_id"], name: "index_groups_on_course_id"
+    t.index ["users_id"], name: "index_groups_on_users_id"
   end
 
   create_table "metadata", force: :cascade do |t|
@@ -116,6 +118,9 @@ ActiveRecord::Schema.define(version: 2019_08_14_084555) do
     t.string "subdomain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "teachers_courses_tables", force: :cascade do |t|
   end
 
   create_table "users", force: :cascade do |t|
@@ -151,6 +156,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_084555) do
   add_foreign_key "assignments", "users", column: "users_id"
   add_foreign_key "categories", "portals"
   add_foreign_key "courses", "portals"
+  add_foreign_key "groups", "users", column: "users_id"
   add_foreign_key "metadata", "portals"
   add_foreign_key "users", "portals"
 end

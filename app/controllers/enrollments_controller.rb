@@ -41,7 +41,7 @@ class EnrollmentsController < ApplicationController
     params.require(:enrollment).permit(:course)
   end
 
-  def get_grade
+  def get_enrollment
     @enrollment = Enrollment.find(params[:id])
   end
 

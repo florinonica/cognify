@@ -42,4 +42,8 @@ class Admin < User
   def can_delete_attachment?(attachment)
     true
   end
+
+  def can_add_teacher?
+    true
+  end
 end

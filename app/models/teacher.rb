@@ -1,6 +1,7 @@
 class Teacher < User
-  #has_many :courses
-  has_many :metadatum, :as => :first_container, dependent: :destroy
+  has_many :groups
+  has_and_belongs_to_many :courses, join_table: :teachers_courses
+
   def self.model_name
     User.model_name
   end

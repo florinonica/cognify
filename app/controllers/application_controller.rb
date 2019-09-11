@@ -27,6 +27,11 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def save_grade(container, date, user, value)
+    @grade = Grade.new(container: container, date: date, user_id: user.id, value: value)
+    @grade.save
+  end
+
   def save_metadata(container, portal)
     @metadata = Metadatum.new(container: container, portal: portal)
     @metadata.save
