@@ -3,9 +3,10 @@ class Course < ApplicationRecord
   belongs_to :category
   belongs_to :portal
   has_one :grade, as: :container, dependent: :destroy
-  has_many :course_modules, dependent: :destroy
   has_many :attachments, :as => :container, dependent: :destroy
   has_many :assignments, as: :container, dependent: :destroy
+  has_many :course_modules, dependent: :destroy
+  has_many :groups, dependent: :destroy
   has_and_belongs_to_many :students, join_table: :enrollments
   has_and_belongs_to_many :teachers, join_table: :courses_teachers
   has_and_belongs_to_many :teacher_assistants, join_table: :teacher_assistants_courses
