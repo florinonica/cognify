@@ -37,18 +37,21 @@ end
 Rails.application.routes.draw do
   devise_for :users, :controllers => {sessions: "users/sessions", registrations: "users/registrations"}
   get "/temp" => "welcome#temp_index", as: :temp
+
   constraints(SubdomainBlank) do
     root 'welcome#index'
 
     resources :portals
     resources :users
   end
+
   constraints(SubdomainPresent) do
     root 'welcome#index'
 
     resources :portals
     resources :categories
     resources :courses do
+      resources :groups
       resources :course_modules do
         resources :assignments
       end
