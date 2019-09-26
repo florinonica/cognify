@@ -47,6 +47,10 @@
   height: 75%;
 }
 
+html {
+  scroll-behavior: smooth;
+ }
+
 @font-face {
     font-family: 'Elianto-Regular';
     src: url("Elianto-Regular.ttf") format('truetype');
@@ -55,7 +59,7 @@
 body {
     font-family: 'Elianto-Regular';
     font-size: 18px;
-    background-image: url("../hex2.png");
+    background-image: url("../back.jpg");
 }
 
 .round-image-50 {
