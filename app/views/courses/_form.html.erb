@@ -29,7 +29,7 @@
   <div class="row">
     <div class="col-xs-5">
       <%= form.label :category %><br>
-      <%= form.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }, :category_id), class: 'form-control' %>
+      <%= form.select :category_id, options_for_select(@portal.categories.collect { | category | [category.name, category.id] }, :category_id), class: 'form-control' %>
     </div>
   </div>
 <br>
