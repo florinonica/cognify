@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_124248) do
+ActiveRecord::Schema.define(version: 2019_10_02_125225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,13 @@ ActiveRecord::Schema.define(version: 2019_09_13_124248) do
     t.integer "teacher_id"
     t.index ["course_id"], name: "index_groups_on_course_id"
     t.index ["teacher_id"], name: "index_groups_on_teacher_id"
+  end
+
+  create_table "groups_students", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "group_id", null: false
+    t.index ["group_id"], name: "index_groups_students_on_group_id"
+    t.index ["student_id"], name: "index_groups_students_on_student_id"
   end
 
   create_table "metadata", force: :cascade do |t|
