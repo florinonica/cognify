@@ -12,5 +12,6 @@ class Course < ApplicationRecord
   has_and_belongs_to_many :teacher_assistants, join_table: :teacher_assistants_courses
 
   def get_open_groups
+    groups.where(:is_public)
   end
 end

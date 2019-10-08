@@ -20,6 +20,8 @@ class EnrollmentsController < ApplicationController
     @enrollment.start = Date.today
     @enrollment.end = Date.today + 365
     if @enrollment.save
+      @group = @enrollment.course.groups.get_open_groups.first
+      @group.students << current_user
       redirect_to courses_path
     end
   end
