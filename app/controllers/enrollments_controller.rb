@@ -1,6 +1,7 @@
 class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_portal
+  before_action :get_course
   before_action :get_enrollment, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,9 +21,9 @@ class EnrollmentsController < ApplicationController
     @enrollment.start = Date.today
     @enrollment.end = Date.today + 365
     if @enrollment.save
-      @group = @enrollment.course.groups.get_open_groups.first
+      @group = @course.groups.first
       @group.students << current_user
-      redirect_to courses_path
+      redirect_to course_path(@course)
     end
   end
 
@@ -45,6 +46,10 @@ class EnrollmentsController < ApplicationController
 
   def get_enrollment
     @enrollment = Enrollment.find(params[:id])
+  end
+
+  def get_course
+    @course = Course.find(params[:course])
   end
 
   def get_portal

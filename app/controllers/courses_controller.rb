@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :get_portal, only: [:index, :new, :create, :edit, :update, :destroy, :enroll]
-  before_action :get_course, only: [:show, :edit, :update, :destroy, :enroll, :add_teacher]
+  before_action :get_course, only: [:show, :edit, :update, :destroy, :enroll, :add_teacher, :students]
 
   def index
     @courses = @portal.courses.paginate(:page => params[:page], per_page:6)
@@ -65,6 +65,9 @@ class CoursesController < ApplicationController
     @teacher = Teacher.find(params[:course][:teacher_ids])
     @course.teachers << @teacher
     redirect_to courses_path(@course)
+  end
+
+  def students
   end
 
   private
