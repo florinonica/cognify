@@ -16,7 +16,7 @@ class GradesController < ApplicationController
 
   def create
     @grade = @user.grades.new(grade_params)
-
+    @grade.date = Date.today
     if @grade.save
       redirect_to user_grades_path(@user)
     else
@@ -43,7 +43,7 @@ class GradesController < ApplicationController
   private
 
   def grade_params
-    params.require(:grade).permit(:value, :container, :date)
+    params.require(:grade).permit(:value, :container, :user)
   end
 
   def get_grade
