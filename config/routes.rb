@@ -57,9 +57,7 @@ Rails.application.routes.draw do
       end
       resources :assignments
     end
-    resources :users do
-      resources :grades
-    end
+    resources :users
     resources :assignments
     resources :grades
     resources :groups

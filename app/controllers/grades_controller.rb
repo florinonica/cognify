@@ -4,7 +4,7 @@ class GradesController < ApplicationController
   #before_action :get_grade:, only: [:show, :edit, :update, :destroy]
 
   def index
-    @grades = @user.grades
+    @grades = Grade.all
   end
 
   def show
@@ -15,10 +15,10 @@ class GradesController < ApplicationController
   end
 
   def create
-    @grade = @user.grades.new(grade_params)
+    @grade = Grade.new(grade_params)
     @grade.date = Date.today
     if @grade.save
-      redirect_to user_grades_path(@user)
+      redirect_to :back
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class GradesController < ApplicationController
 
   def update
     if @grade.update(grade_params)
-      redirect_to user_grades_path(@user)
+      redirect_to :back
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class GradesController < ApplicationController
 
   def destroy
     @grade.destroy
-    redirect_to user_grades_path(@user)
+    redirect_to :back
   end
 
   private
