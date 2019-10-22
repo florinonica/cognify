@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :get_portal, only: [:index, :new, :create, :edit, :update, :destroy, :enroll]
-  before_action :get_course, only: [:show, :edit, :update, :destroy, :enroll, :add_teacher, :students]
+  before_action :get_course, only: [:show, :edit, :update, :destroy, :enroll, :add_teacher, :students, :grade_student]
 
   def index
     @courses = @portal.courses.paginate(:page => params[:page], per_page:6)
@@ -68,6 +68,11 @@ class CoursesController < ApplicationController
   end
 
   def students
+  end
+
+  def grade_student
+    params.require(:course).permit(:user, :value)
+    save_grade(@course, Date.today, params[:course][:user], params[:course][:value])
   end
 
   private

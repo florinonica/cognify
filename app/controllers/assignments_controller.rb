@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :assignment, only: [:show, :edit, :update, :destroy, :grade_student]
 
   def index
     @assignments = Assignment.all
@@ -14,7 +15,7 @@ class AssignmentsController < ApplicationController
 
   def create
     @assingment = Assingment.new(assingment_params)
-    params.require(:course).permit(:files => [])
+    params.require(:assignment).permit(:files => [])
     save_attachments(@assignment, params[:course][:files])
 
     if @assingment.save
@@ -44,6 +45,11 @@ class AssignmentsController < ApplicationController
   def destroy
     @assignment.destroy
     redirect_to :back
+  end
+
+  def grade_student
+    params.require(:assignment).permit(:user, :value)
+    save_grade(@assignment, Date.today, params[:course][:user], params[:course][:value])
   end
 
   private

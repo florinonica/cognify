@@ -1,7 +1,7 @@
 class CourseModulesController < ApplicationController
   #before_action :authenticate_user!
   before_action :get_course, only: [:index, :new, :create, :edit, :update]
-  before_action :get_course_module, only: [:show, :edit, :update, :destroy]
+  before_action :get_course_module, only: [:show, :edit, :update, :destroy, :grade_student]
 
   def index
     @course_modules = @course.course_modules
@@ -47,6 +47,11 @@ class CourseModulesController < ApplicationController
     @course = @course_model.course
     @course_module.destroy
     redirect_to course_path(@course)
+  end
+
+  def grade_student
+    params.require(:course_module).permit(:user, :value)
+    save_grade(@course_module, Date.today, params[:course][:user], params[:course][:value])
   end
 
   private

@@ -14,7 +14,9 @@
         <td class="col-xs-2" style='text-align: center; border-bottom: 2px solid; padding-bottom: 20px'><%= user.type %></td>
         <td class="col-xs-2" style='text-align: center; border-bottom: 2px solid; padding-bottom: 20px'><%= user.email %></td>
         <td class="col-xs-2" style='text-align: center; border-bottom: 2px solid; padding-bottom: 20px'><%= link_to '<i class="glyphicon glyphicon-user"></i> Profile'.html_safe, user_path(user), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'} %></td>
-        <div class="col-xs-2" style='text-align: center; border-bottom: 2px solid; padding-bottom: 20px'> <%= link_to 'Grade', new_grade_path(Grade.new, user: user, container: @course)  %></div>
       </tr>
+      <br>
+      <br>
+      <div class="col-xs-2" style='text-align: center; border-bottom: 2px solid; padding-bottom: 20px'> <%= link_to 'Grade', new_grade_path(Grade.new,  container: @course)  %></div>
     <% end %>
 </table>
