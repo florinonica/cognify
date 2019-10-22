@@ -1,7 +1,6 @@
 class GradesController < ApplicationController
   before_action :authenticate_user!
-  #before_action :get_user, only: [:index, :new, :create, :edit, :update]
-  #before_action :get_grade:, only: [:show, :edit, :update, :destroy]
+  before_action :get_grade:, only: [:show, :edit, :update, :destroy]
 
   def index
     @grades = Grade.all
@@ -50,7 +49,4 @@ class GradesController < ApplicationController
     @grade = Grade.find(params[:id])
   end
 
-  def get_user
-    @user = User.find(params[:user_id])
-  end
 end

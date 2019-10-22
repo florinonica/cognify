@@ -71,5 +71,7 @@ Rails.application.routes.draw do
     patch 'courses/:id/add_teacher' => 'courses#add_teacher'
 
     post 'create_user' => 'users#create', as: :create_user
+
+    get 'courses/:id/grade_student' => 'courses#grade_student'
   end
 end
