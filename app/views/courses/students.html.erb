@@ -17,7 +17,7 @@
         <div class="col-xs-2" style='text-align: center; border-bottom: 2px solid; padding-bottom: 20px'>
           <%= form_with model: Grade.new, local: true, :url => {:controller => :grades, :action => :create} do |form| %>
             <%= form.number_field :value, class: 'form-control' %>
-            <%= form.hidden_field :user, :value => user %>
+            <%= form.hidden_field :user, :value => user.id %>
             <%= form.hidden_field :container, :value => @course %>
             <%= form.submit "Submit"%>
           <% end %>

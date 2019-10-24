@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_125225) do
+ActiveRecord::Schema.define(version: 2019_10_24_124221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,12 +92,12 @@ ActiveRecord::Schema.define(version: 2019_10_02_125225) do
   create_table "grades", force: :cascade do |t|
     t.float "value", null: false
     t.datetime "date"
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.integer "container_id"
     t.string "container_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_grades_on_users_id"
+    t.index ["user_id"], name: "index_grades_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|

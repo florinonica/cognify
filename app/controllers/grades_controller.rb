@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_grade:, only: [:show, :edit, :update, :destroy]
+  before_action :get_grade, only: [:show, :edit, :update, :destroy]
 
   def index
     @grades = Grade.all
@@ -14,7 +14,7 @@ class GradesController < ApplicationController
   end
 
   def create
-    @grade = Grade.new(grade_params)
+    @grade = Grade.new(value: params[:grade][:value], user_id: params[:grade][:user], container: params[:grade][:container])
     @grade.date = Date.today
     if @grade.save
       redirect_to :back
