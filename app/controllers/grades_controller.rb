@@ -14,7 +14,7 @@ class GradesController < ApplicationController
   end
 
   def create
-    @grade = Grade.new(value: params[:grade][:value], user_id: params[:grade][:user], container: params[:grade][:container])
+    @grade = Grade.new(value: params[:grade][:value], user_id: params[:grade][:user], container_type: params[:grade][:container_type], container_id: params[:grade][:container_id])
     @grade.date = Date.today
     if @grade.save
       redirect_to :back
@@ -42,7 +42,7 @@ class GradesController < ApplicationController
   private
 
   def grade_params
-    params.require(:grade).permit(:value, :container, :user)
+    params.require(:grade).permit(:value, :container_type, :container_id, :user)
   end
 
   def get_grade

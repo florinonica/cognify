@@ -18,7 +18,8 @@
           <%= form_with model: Grade.new, local: true, :url => {:controller => :grades, :action => :create} do |form| %>
             <%= form.number_field :value, class: 'form-control' %>
             <%= form.hidden_field :user, :value => user.id %>
-            <%= form.hidden_field :container, :value => @course %>
+            <%= form.hidden_field :container_type, :value => "Course" %>
+            <%= form.hidden_field :container_id, :value => @course.id %>
             <%= form.submit "Submit"%>
           <% end %>
         </div>
