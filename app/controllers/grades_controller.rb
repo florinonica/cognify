@@ -17,7 +17,7 @@ class GradesController < ApplicationController
     @grade = Grade.new(value: params[:grade][:value], user_id: params[:grade][:user], container_type: params[:grade][:container_type], container_id: params[:grade][:container_id])
     @grade.date = Date.today
     if @grade.save
-      redirect_to :back
+      redirect_to grade_path(@grade)
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class GradesController < ApplicationController
 
   def update
     if @grade.update(grade_params)
-      redirect_to :back
+      redirect_to grade_path(@grade)
     else
       render 'new'
     end
