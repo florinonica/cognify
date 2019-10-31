@@ -6,3 +6,114 @@
   width: 100%;
   height: 100%;
 }
+
+.card-title {
+	font-family: 'Ubuntu' sans-serif;
+	font-weight: bold;
+	text-align: left;
+	padding: 20px;
+	margin-left: 20px;
+}
+
+.row{
+	margin: 5px;
+}
+
+.hvrbox,
+.hvrbox * {
+	box-sizing: border-box;
+}
+
+.hvrbox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: 250px;
+}
+
+.hvrbox img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+img:hover {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.hvrbox .hvrbox-layer_bottom {
+	display: block;
+}
+
+.hvrbox .hvrbox-layer_top {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+.hvrbox:hover .hvrbox-layer_top,
+.hvrbox.active .hvrbox-layer_top {
+	opacity: 1;
+}
+
+.hvrbox .hvrbox-text {
+	text-align: center;
+	font-size: 18px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.selectors {
+	position: fixed;
+	z-index: 99999;
+	top: 50px;
+	width: 100%;
+	background-color: white;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	padding: 20px;
+}
+
+.jsProject {
+	height: 350px;
+	background-color: white;
+	cursor: pointer;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	border-bottom-left-radius: 50px 20px;
+}
+
+.col {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.projects-list {
+	position: relative;
+	margin-top: 100px;
+}

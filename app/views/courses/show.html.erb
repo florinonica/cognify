@@ -16,19 +16,17 @@
   <div>
       <%= @course.description %>
   </div>
+</div>
 
-  <div class="col-xs-1">
-    <%= link_to "New module", new_course_course_module_path(@course), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
-  </div>
-  <br>
-  <div class="col-xs-1">
+<div class="col-xs-1">
+  <%= link_to "New module", new_course_course_module_path(@course), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
+</div>
+<div class="col-xs-1">
 
-    <% if current_user.can_create_group? %>
-      <%= link_to "Add Group", new_course_group_path(@course), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
-    <% end %>
-  </div>
-</div><br>
-
+  <% if current_user.can_create_group? %>
+    <%= link_to "Add Group", new_course_group_path(@course), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
+  <% end %>
+</div>
 <div class="col-xs-1">
   <% if current_user.can_add_teacher? %>
     <%= form_for @course, :url => {:action => :add_teacher} do |form| %>
@@ -45,5 +43,5 @@
 </div>
 <br>
 <div class="col-xs-1">
-  <%= render 'attachments/file', attachments: @course.attachments%>
+  <%#= render 'attachments/file', attachments: @course.attachments%>
 </div>

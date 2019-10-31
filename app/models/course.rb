@@ -14,4 +14,8 @@ class Course < ApplicationRecord
   def get_open_groups
     groups.where(:is_public)
   end
+
+  def has_grade(student)
+    
+  end
 end
