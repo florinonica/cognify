@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
     get 'courses/:id/add_enrollment' => 'courses#enroll', as: :add_enrollment
 
-    get 'courses/:id/students' => 'courses#students'
+    get 'courses/:id/students' => 'courses#students', as: :course_students
 
     patch 'courses/:id/add_teacher' => 'courses#add_teacher'
 

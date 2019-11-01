@@ -39,6 +39,19 @@
                   </li>
                   <li>
                       <a href="<%= courses_path %>">Courses</a>
+                      <% if (controller_name == "courses" && (action_name == "show" || action_name == "students")) || controller_name == "course_modules" || controller_name == "groups"%>
+                        <ul class="collapse-unstyled components" style="margin-left: 30px; margin-top: -20px; margin-bottom: -20px;">
+                            <li >
+                                <a href="<%= course_course_modules_path(@course)%>">Modules</a>
+                            </li>
+                            <li>
+                                <a href="<%= %>">Groups</a>
+                            </li>
+                            <li>
+                                <a href="<%= course_students_path(@course)%>">Students</a>
+                            </li>
+                        </ul>
+                      <% end %>
                   </li>
                   <li>
                       <a href="#">Grades</a>
