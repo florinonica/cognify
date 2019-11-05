@@ -68,10 +68,11 @@ Rails.application.routes.draw do
 
     get 'courses/:id/students' => 'courses#students', as: :course_students
 
+    get 'courses/:id/grade_student' => 'courses#grade_student'
+
     patch 'courses/:id/add_teacher' => 'courses#add_teacher'
 
     post 'create_user' => 'users#create', as: :create_user
 
-    get 'courses/:id/grade_student' => 'courses#grade_student'
   end
 end

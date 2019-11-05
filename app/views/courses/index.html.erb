@@ -21,18 +21,6 @@
   }</style>
 </head>
 <div class='margin-wrapper1'>
-  <div class='wr-head'>
-    <div style=' width: 150px; margin-right: 150px; margin-left: 10px'>
-      Course
-    </div>
-    <div style=' width: 150px; margin-right: 150px; margin-left: -10px'>
-      Category
-    </div>
-    <div style=' width: 150px; margin-right: 150px;'>
-      Price
-    </div>
-    <div class="col-xs-1">  <%= link_to "Add Course", new_course_path, {:class => "btn btn-info", :style => 'color: white; font-weight: bold;'} %></div>
-  </div>
   <% @courses.each do |course|%>
     <div class="margin-wrapper2" align='left'>
       <div class="col-xs-12" style='padding-top: 20px;display:flex; background-color: #E3E6ED;'>
@@ -58,8 +46,39 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+    	<div class="col"></div>
+    	<div class="col project">
+    		<div class="jsProject">
+    			<a class = "redirectLink">
+    				<div class="hvrbox">
+    					<img src="" alt="Card image cap">
+    				</div>
+    			</a>
+    			<h5 class="card-title" ></h5>
+    			<p class="description" hidden></p>
+    			<p class="price" hidden></p>
+    		</div>
+    	</div>
+    	<div class="col"></div>
+    </div>
+
   <% end %>
   <div class="col-xs-12" style=' height: 100px; text-align: center; background-color: white; font-size: 20px'>
     <%= will_paginate @projects  %>
   </div>
+</div>
+
+<div class='wr-head'>
+  <div style=' width: 150px; margin-right: 150px; margin-left: 10px'>
+    Course
+  </div>
+  <div style=' width: 150px; margin-right: 150px; margin-left: -10px'>
+    Category
+  </div>
+  <div style=' width: 150px; margin-right: 150px;'>
+    Price
+  </div>
+  <div class="col-xs-1"><%= link_to "Add Course", new_course_path, {:class => "btn btn-info", :style => 'color: white; font-weight: bold;'} %></div>
 </div>
