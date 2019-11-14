@@ -24,19 +24,25 @@
   <% @courses.each do |course|%>
     <div class="margin-wrapper2" align='left'>
       <div class="col-xs-12" style='padding-top: 20px;display:flex; background-color: #E3E6ED;'>
-        <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
-          <%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %>
-        </div>
-        <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
-          <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
-        </div>
-        <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px; margin-top: -5px'>
-          <% if course.price.blank? || course.price == 0 %>
-            Free
-          <% else %>
-            <%= course.price%>
-          <% end %>
-        </div>
+
+        <div class="col project">
+      		<div class="jsProject">
+      			<a class = "redirectLink">
+      				<div class="hvrbox">
+      					<img src="" alt="Card image cap">
+      				</div>
+      			</a>
+      			<h5 class="card-title" ><%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %></h5>
+      			<p class="description" hidden><%= course.description %></p>
+      			<p class="price" hidden>
+              <% if course.price.blank? || course.price == 0 %>
+                Free
+              <% else %>
+                <%= course.price %>
+              <% end %>
+            </p>
+      		</div>
+      	</div>
         <div style='margin-top: -10px'>
           <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_course_path(course), {:style => 'color:#0079bf; font-weight: bold; font-size: 32px; '} %>
           <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color:#0079bf; font-weight: bold; font-size: 32px'  %>
@@ -46,7 +52,18 @@
         </div>
       </div>
     </div>
-
+    <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
+      <%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %>
+    </div>
+    <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
+      <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
+    </div>
+    <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px; margin-top: -5px'>
+        Free
+      <% else %>
+        <%= course.price %>
+      <% end %>
+    </div>
     <div class="row">
     	<div class="col"></div>
     	<div class="col project">
@@ -56,9 +73,15 @@
     					<img src="" alt="Card image cap">
     				</div>
     			</a>
-    			<h5 class="card-title" ></h5>
-    			<p class="description" hidden></p>
-    			<p class="price" hidden></p>
+    			<h5 class="card-title" ><%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %></h5>
+    			<p class="description" hidden><%= course.description %></p>
+    			<p class="price" hidden>
+            <% if course.price.blank? || course.price == 0 %>
+              Free
+            <% else %>
+              <%= course.price %>
+            <% end %>
+          </p>
     		</div>
     	</div>
     	<div class="col"></div>

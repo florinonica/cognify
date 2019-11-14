@@ -16,6 +16,5 @@ class Course < ApplicationRecord
   end
 
   def has_grade(student)
-    
   end
 end
