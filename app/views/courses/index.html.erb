@@ -59,6 +59,7 @@
       <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
     </div>
     <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px; margin-top: -5px'>
+      <% if course.price.blank? || course.price == 0 %>
         Free
       <% else %>
         <%= course.price %>

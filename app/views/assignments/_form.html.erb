@@ -17,6 +17,12 @@
         <%= form.number_field :value, class: 'form-control' %>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= form.label :due_date %><br>
+        <%= form.datetime_select :due_date, class: 'form-control' %>
+      </div>
+    </div>
   <br>
       <%= form.hidden_field :user, :value => user %>
       <%= form.hidden_field :container, :value => container %>
