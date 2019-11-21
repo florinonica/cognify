@@ -52,49 +52,49 @@
         </div>
       </div>
     </div>
-    <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
-      <%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %>
-    </div>
-    <div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
-      <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
-    </div>
-    <div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px; margin-top: -5px'>
-      <% if course.price.blank? || course.price == 0 %>
-        Free
-      <% else %>
-        <%= course.price %>
-      <% end %>
-    </div>
-    <div class="row">
-    	<div class="col"></div>
-    	<div class="col project">
-    		<div class="jsProject">
-    			<a class = "redirectLink">
-    				<div class="hvrbox">
-    					<img src="" alt="Card image cap">
-    				</div>
-    			</a>
-    			<h5 class="card-title" ><%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %></h5>
-    			<p class="description" hidden><%= course.description %></p>
-    			<p class="price" hidden>
-            <% if course.price.blank? || course.price == 0 %>
-              Free
-            <% else %>
-              <%= course.price %>
-            <% end %>
-          </p>
-    		</div>
-    	</div>
-    	<div class="col"></div>
-    </div>
-
   <% end %>
   <div class="col-xs-12" style=' height: 100px; text-align: center; background-color: white; font-size: 20px'>
     <%= will_paginate @projects  %>
   </div>
 </div>
+<% if false %>
+<!--div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
+  <%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %>
+</div>
+<div style=' width: 150px; margin-right: 150px; margin-top: -5px'>
+  <%= link_to course.category.name, category_path(course.category), {:style => 'color:black;'} %>
+</div>
+<div style=' width: 150px; margin-right: 150px; color: black; font-weight: bold; margin-left: 20px; margin-top: -5px'>
+  <% if course.price.blank? || course.price == 0 %>
+    Free
+  <% else %>
+    <%= course.price %>
+  <% end %>
+</div-->
+<!--div class="row">
+  <div class="col"></div>
+  <div class="col project">
+    <div class="jsProject">
+      <a class = "redirectLink">
+        <div class="hvrbox">
+          <img src="" alt="Card image cap">
+        </div>
+      </a>
+      <h5 class="card-title" ><%= link_to course.title, course_path(course), {:style => 'color: black; font-weight: bold; margin-left: 20px;'} %></h5>
+      <p class="description" hidden><%= course.description %></p>
+      <p class="price" hidden>
+        <% if course.price.blank? || course.price == 0 %>
+          Free
+        <% else %>
+          <%= course.price %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="col"></div>
+</div-->
 
-<div class='wr-head'>
+<!--div class='wr-head'>
   <div style=' width: 150px; margin-right: 150px; margin-left: 10px'>
     Course
   </div>
@@ -105,4 +105,5 @@
     Price
   </div>
   <div class="col-xs-1"><%= link_to "Add Course", new_course_path, {:class => "btn btn-info", :style => 'color: white; font-weight: bold;'} %></div>
-</div>
+</div-->
+<% end %>
