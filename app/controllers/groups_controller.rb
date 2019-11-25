@@ -17,7 +17,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = @course.groups.new(group_params)
-    @group.teacher = current_user
+    if current_user.can_create_course?
+      @group.teacher = @course.teachers.first
+    else
+      @group.teacher = current_user
+    end
     if @group.save
       redirect_to course_path(@course)
     else

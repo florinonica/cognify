@@ -76,7 +76,11 @@ class User < ApplicationRecord
     false
   end
 
-  def can_create_group?
+  def can_create_group?(course)
+    false
+  end
+
+  def can_grade_students?(course)
     false
   end
 

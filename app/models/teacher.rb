@@ -13,4 +13,12 @@ class Teacher < User
   def can_delete_attachment?(attachment)
     (attachments.include?(attachment) ? true : false)
   end
+
+  def can_create_group?(course)
+    (courses.include?(course) ? true : false)
+  end
+
+  def can_grade_students?(course)
+    (courses.include?(course) ? true : false)
+  end
 end

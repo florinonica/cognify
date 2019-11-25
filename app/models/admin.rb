@@ -47,7 +47,7 @@ class Admin < User
     true
   end
 
-  def can_create_group?
+  def can_create_group?(course)
     true
   end
 end
