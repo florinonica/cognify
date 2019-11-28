@@ -23,7 +23,7 @@
 </div>
 <div class="col-xs-1">
 
-  <% if current_user.can_create_group? %>
+  <% if current_user.can_create_group?(@course) %>
     <%= link_to "Add Group", new_course_group_path(@course), {:style => 'color:#0079bf; font-size: 18px; font-weight: bold; font-family: "Ubuntu"'}%>
   <% end %>
 </div>

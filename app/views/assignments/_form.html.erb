@@ -13,6 +13,13 @@
   <br>
     <div class="row">
       <div class="col-xs-5">
+        <%= form.label :description %><br>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
+    </div>
+  <br>
+    <div class="row">
+      <div class="col-xs-5">
         <%= form.label :due_date %><br>
         <%= form.datetime_select :due_date, class: 'form-control' %>
       </div>
