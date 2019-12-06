@@ -6,6 +6,10 @@ class Teacher < User
     User.model_name
   end
 
+  def can_create_course?
+    true
+  end
+
   def can_delete_attachment?(attachment)
     (attachments.include?(attachment) ? true : false)
   end
